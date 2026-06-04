@@ -1,0 +1,766 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-dark: #282828;
+  --bg-dark-card: #1f1f1f;
+  --primary-blue: #3A4DA1;
+  --accent-blue: #68B5E4;
+  --text-light: #F1F1F1;
+  --text-dark: #282828;
+}
+
+/* Typography Overrides */
+body, h1, h2, h3, h4, h5, h6, p, a, span, li, input, textarea, button {
+  font-family: 'Outfit', sans-serif !important;
+}
+
+/* Global Styles */
+body, section {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-light) !important;
+}
+
+/* All default text headings and subtexts */
+h1, h2, h3, h4, h5, h6, p, span, li {
+  color: var(--text-light) !important;
+}
+
+/* Sub Header Navigation */
+.sub-header {
+  background-color: #1e1e1e !important;
+  border-bottom: 1px solid #333;
+}
+.sub-header p {
+  color: #aaaaaa !important;
+}
+.sub-header em {
+  color: var(--accent-blue) !important;
+  font-style: normal;
+}
+.sub-header ul li a {
+  color: var(--text-light) !important;
+}
+.sub-header ul li a:hover {
+  color: var(--accent-blue) !important;
+}
+
+/* Header Area / Menu */
+.header-area {
+  background-color: rgba(40, 40, 40, 0.95) !important;
+  backdrop-filter: blur(8px);
+}
+.header-area.header-sticky .nav li a.active,
+.header-area.header-sticky .nav li a:hover {
+  color: var(--accent-blue) !important;
+}
+.header-area .main-nav .logo {
+  color: var(--text-light) !important;
+}
+.header-area .main-nav .nav li a {
+  color: var(--text-light) !important;
+}
+.header-area .main-nav .nav li.has-sub ul.sub-menu {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
+  color: var(--accent-blue) !important;
+  background-color: #f7f7f7 !important;
+}
+
+/* Page heading overlay */
+.heading-page {
+  position: relative;
+}
+.heading-page::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(40, 40, 40, 0.85) !important;
+  z-index: 1;
+}
+.heading-page .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Banners / Caption */
+.main-banner .caption h6 {
+  color: var(--accent-blue) !important;
+}
+.main-banner .caption h2 em {
+  color: var(--accent-blue) !important;
+}
+
+/* Services and owl slider */
+.services .item {
+  background-image: none !important;
+  background-color: var(--bg-dark-card) !important;
+  border: 1px solid #333333;
+}
+.services .item h4 {
+  color: var(--text-light) !important;
+}
+.services .item p {
+  color: #bbbbbb !important;
+}
+
+/* Meeting Categories Section (Left sidebar on index.html) */
+section.upcoming-meetings .categories {
+  background-color: var(--text-light) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+section.upcoming-meetings .categories h4 {
+  color: var(--text-dark) !important;
+  border-bottom: 1px solid #dddddd !important;
+}
+section.upcoming-meetings .categories ul li a {
+  color: var(--text-dark) !important;
+  font-weight: 700 !important;
+}
+section.upcoming-meetings .categories ul li a:hover {
+  color: var(--primary-blue) !important;
+}
+
+/* Section Background Overrides to remove images and use dark charcoal */
+section.upcoming-meetings,
+section.our-courses,
+section.meetings-page {
+  background-image: none !important;
+  background-color: var(--bg-dark) !important;
+}
+
+/* Session Item Cards (Royal Blue Theme) */
+.meeting-item,
+.meeting-item .down-content {
+  background-color: var(--primary-blue) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 20px !important;
+}
+.meeting-item:hover {
+  box-shadow: 0 12px 28px rgba(58, 77, 161, 0.35) !important;
+  border-color: var(--accent-blue) !important;
+}
+.meeting-item .down-content h4,
+.meeting-item .down-content h4 a {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+.meeting-item .down-content a:hover h4 {
+  color: var(--accent-blue) !important;
+}
+.meeting-item .down-content p {
+  color: #e2e8f0 !important;
+}
+.meeting-item .down-content .date {
+  background-color: var(--text-light) !important;
+  border-radius: 10px !important;
+  padding: 8px 4px !important;
+}
+.meeting-item .down-content .date h6 {
+  color: var(--primary-blue) !important;
+  font-weight: 700 !important;
+}
+.meeting-item .down-content .date span {
+  color: var(--text-dark) !important;
+  font-weight: 800 !important;
+}
+
+/* Projects / Course Item Cards (Dark Charcoal Theme) Overrides */
+.our-courses .item {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  background-color: var(--bg-dark-card) !important;
+  border: 1px solid #333333 !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+.our-courses .item:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4) !important;
+  border-color: var(--primary-blue) !important;
+}
+.our-courses .item img {
+  height: 200px !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+.our-courses .item .down-content {
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: var(--bg-dark-card) !important;
+  padding: 0 !important;
+  border: none !important;
+  border-bottom-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
+.our-courses .item .down-content h4 {
+  color: var(--text-light) !important;
+  padding: 20px 20px 15px 20px !important;
+  margin: 0 !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+  border-bottom: none !important;
+  min-height: 65px !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+.our-courses .item .down-content .info {
+  margin-top: auto !important;
+  padding: 15px 20px 20px 20px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+.our-courses .item .down-content p {
+  color: #bbbbbb !important;
+}
+
+/* Force Owl Carousel elements to support equal height flex items */
+.our-courses .owl-stage {
+  display: flex !important;
+}
+.our-courses .owl-item {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Accordions Section */
+.accordions {
+  background-color: var(--bg-dark-card) !important;
+  border: 1px solid #333333 !important;
+}
+.accordions .accordion {
+  border-bottom: 1px solid #333333 !important;
+}
+.accordion-head {
+  color: var(--text-light) !important;
+  cursor: default !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+.accordion-head.is-open {
+  color: var(--accent-blue) !important;
+}
+.accordion-head .icon {
+  float: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+.accordion-head .icon i {
+  font-size: 12px !important;
+  color: var(--text-light) !important;
+  transition: transform 0.3s ease !important;
+}
+.accordion-head .icon:hover {
+  background-color: var(--accent-blue) !important;
+  border-color: var(--accent-blue) !important;
+  box-shadow: 0 0 10px rgba(58, 123, 213, 0.5) !important;
+}
+.accordion-head .icon:hover i {
+  color: #ffffff !important;
+}
+.accordion-head.is-open .icon {
+  transform: rotate(90deg) !important;
+  background-color: var(--accent-blue) !important;
+  border-color: var(--accent-blue) !important;
+}
+.accordion-head.is-open .icon i {
+  color: #ffffff !important;
+}
+.accordion-body .content p {
+  color: #bbbbbb !important;
+}
+
+/* Pricing Badges */
+.price span {
+  background-color: var(--primary-blue) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* Primary/Accent Buttons */
+.main-button-red a,
+.main-button-yellow a,
+#contact button.button,
+#form-submit {
+  background-color: var(--primary-blue) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-radius: 25px !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+}
+.main-button-red a:hover,
+.main-button-yellow a:hover,
+#contact button.button:hover,
+#form-submit:hover {
+  background-color: var(--accent-blue) !important;
+  box-shadow: 0 5px 15px rgba(104, 181, 228, 0.4) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) scale(1.03) !important;
+}
+
+/* Contact Form Section */
+section.contact-us #contact {
+  background-color: var(--bg-dark-card) !important;
+  border: 1px solid #333333 !important;
+}
+section.contact-us #contact h2 {
+  color: var(--text-light) !important;
+  border-bottom: 1px solid #333333 !important;
+}
+section.contact-us #contact input,
+section.contact-us #contact textarea {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-light) !important;
+  border: 1px solid #333333 !important;
+}
+section.contact-us #contact input:focus,
+section.contact-us #contact textarea:focus {
+  border-color: var(--accent-blue) !important;
+  outline: none;
+}
+section.contact-us #contact input::placeholder,
+section.contact-us #contact textarea::placeholder {
+  color: #666666 !important;
+}
+
+/* Discord/Contact Details Blue Box */
+.contact-info-blue-box {
+  background-color: var(--primary-blue) !important;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, #253375 100%) !important;
+  border: 1px solid rgba(104, 181, 228, 0.3) !important;
+  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.2) !important;
+}
+.contact-info-blue-box h6 {
+  color: #ffffff !important;
+}
+.contact-info-blue-box span,
+.contact-info-blue-box span a {
+  color: var(--accent-blue) !important;
+}
+.contact-info-blue-box span a:hover {
+  color: #ffffff !important;
+}
+
+/* Filter Controls on meetings.html */
+.filters ul li {
+  color: var(--text-light) !important;
+  background-color: var(--bg-dark-card) !important;
+  border: 1px solid #333333 !important;
+  font-weight: 500 !important;
+}
+.filters ul li.active,
+.filters ul li:hover {
+  background-color: var(--primary-blue) !important;
+  color: #ffffff !important;
+  border-color: var(--primary-blue) !important;
+}
+
+/* Pagination Controls on meetings.html */
+.pagination ul li a {
+  background-color: var(--bg-dark-card) !important;
+  color: var(--text-light) !important;
+  border: 1px solid #333333 !important;
+}
+.pagination ul li.active a,
+.pagination ul li a:hover {
+  background-color: var(--primary-blue) !important;
+  color: #ffffff !important;
+  border-color: var(--primary-blue) !important;
+}
+
+/* Single Meeting details view specific styles (Light Card Theme with Bold Black Text) */
+.meeting-single-item {
+  background-color: #ffffff !important;
+  border: 1px solid #cccccc !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+.meeting-single-item .down-content {
+  background-color: #ffffff !important;
+}
+.meeting-single-item .down-content h4,
+.meeting-single-item .down-content h5,
+.meeting-single-item .down-content h6,
+.meeting-single-item .down-content p,
+.meeting-single-item .down-content span,
+.meeting-single-item .down-content li,
+.meeting-single-item .down-content div {
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+.meeting-single-item .down-content p.description {
+  border-top: 2px solid #dddddd !important;
+  border-bottom: 2px solid #dddddd !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+.meeting-single-item .down-content .share {
+  border-top: 2px solid #dddddd !important;
+}
+.meeting-single-item .down-content .share ul li a {
+  color: #000000 !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease !important;
+}
+.meeting-single-item .down-content .share ul li a:hover {
+  color: var(--accent-blue) !important;
+}
+.meeting-single-item .down-content a {
+  color: var(--primary-blue) !important;
+  font-weight: 700 !important;
+}
+.meeting-single-item .down-content a:hover {
+  color: var(--accent-blue) !important;
+}
+.meeting-single-item .down-content h5 {
+  color: #000000 !important;
+  border-bottom: 2px solid #dddddd !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 15px !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+  display: block !important;
+}
+.meeting-single-item .thumb .date {
+  background-color: var(--text-light) !important;
+  border-radius: 10px !important;
+  padding: 8px 12px !important;
+  text-align: center !important;
+}
+.meeting-single-item .thumb .date h6 {
+  color: var(--primary-blue) !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+}
+.meeting-single-item .thumb .date span {
+  color: var(--text-dark) !important;
+  font-weight: 800 !important;
+  display: block !important;
+  font-size: 20px !important;
+  margin-top: 2px !important;
+}
+
+
+/* Footer Section */
+.footer p {
+  color: #888888 !important;
+  border-top: 1px solid #333333;
+}
+.footer p a {
+  color: var(--accent-blue) !important;
+}
+.footer p a:hover {
+  color: var(--text-light) !important;
+}
+
+/* Contact Details Cards Box */
+.contact-details-section {
+  padding-top: 60px !important;
+  padding-bottom: 120px !important;
+}
+.contact-box-container {
+  background-color: var(--bg-dark-card) !important;
+  border: 1px solid #333333 !important;
+  border-radius: 20px !important;
+  padding: 40px !important;
+}
+.contact-box-container .section-heading {
+  text-align: left !important;
+}
+.contact-box-container .section-heading h2 {
+  color: var(--text-light) !important;
+  font-size: 22px !important;
+  border-bottom: 1px solid #333333 !important;
+  margin-bottom: 40px !important;
+  padding-bottom: 20px !important;
+  text-transform: uppercase !important;
+  font-weight: 900 !important;
+}
+.contact-box-details {
+  margin-top: 20px;
+}
+.contact-box-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 15px 20px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.contact-box-item:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-color: rgba(104, 181, 228, 0.2);
+}
+.contact-box-item .icon-circle {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(58, 77, 161, 0.1) !important;
+  border: 1px solid var(--primary-blue) !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.contact-box-item:hover .icon-circle {
+  background-color: rgba(104, 181, 228, 0.15) !important;
+  border-color: var(--accent-blue) !important;
+}
+.contact-box-item .icon-circle i {
+  color: var(--accent-blue) !important;
+  font-size: 20px;
+}
+.contact-box-item .detail-text h6 {
+  color: var(--text-light) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  margin-bottom: 4px !important;
+  letter-spacing: 0.5px;
+}
+.contact-box-item .detail-text span,
+.contact-box-item .detail-text span a {
+  color: var(--accent-blue) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+  word-break: break-all;
+}
+.contact-box-item .detail-text span a:hover {
+  color: #ffffff !important;
+}
+
+/* Equal Heights for Meeting Cards across the site */
+#meetings .col-lg-6,
+.meetings-page .templatemo-item-col {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.meeting-item {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+.meeting-item .down-content {
+  flex-grow: 1 !important;
+  display: grid !important;
+  grid-template-columns: 65px 1fr !important;
+  column-gap: 20px !important;
+  row-gap: 5px !important;
+  align-items: start !important;
+  padding: 30px !important;
+}
+.meeting-item .down-content .date {
+  grid-column: 1 !important;
+  grid-row: 1 / span 2 !important;
+  float: none !important;
+  margin-right: 0 !important;
+  width: 65px !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+}
+.meeting-item .down-content > a {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  margin: 0 !important;
+  display: block !important;
+}
+.meeting-item .thumb img {
+  width: 100% !important;
+  height: 215px !important;
+  object-fit: cover !important;
+  border-top-right-radius: 20px !important;
+  border-top-left-radius: 20px !important;
+}
+.meeting-item .down-content h4 {
+  margin: 0 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  line-height: 1.3 !important;
+  min-height: 48px !important;
+}
+.meeting-item .down-content p {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+  margin-left: 0 !important;
+  margin-top: 5px !important;
+  line-height: 1.5 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  min-height: 42px !important;
+}
+
+/* Force dropdown sub-menu visibility when parent has-sub has is-open-sub class active */
+.header-area .main-nav .nav li.has-sub.is-open-sub ul.sub-menu {
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 999 !important;
+  transform: translateY(0%) !important;
+}
+
+/* Disable transition on height to prevent conflicts with JQuery slide animation */
+.header-area .main-nav .nav li.has-sub ul.sub-menu {
+  transition: opacity .3s, transform .3s, visibility .3s !important;
+}
+
+/* Sync dropdown arrow indicator color and alignment (Outfit baseline center) */
+.header-area .main-nav .nav li.has-sub:after,
+.background-header .main-nav .nav li.has-sub:after {
+  color: var(--text-light) !important;
+  transition: color 0.3s ease !important;
+  top: 14px !important;
+}
+.header-area .main-nav .nav li.has-sub:hover:after,
+.background-header .main-nav .nav li.has-sub:hover:after,
+.header-area .main-nav .nav li.has-sub.is-open-sub:after,
+.background-header .main-nav .nav li.has-sub.is-open-sub:after {
+  color: var(--accent-blue) !important;
+}
+
+/* FontAwesome Icon Restorations */
+.header-area .main-nav .nav li.has-sub:after,
+.owl-nav button:before,
+.owl-nav button span {
+  font-family: 'FontAwesome' !important;
+}
+
+/* Hamburger mobile menu trigger color */
+.header-area .main-nav .menu-trigger span,
+.header-area .main-nav .menu-trigger span:before,
+.header-area .main-nav .menu-trigger span:after {
+  background-color: var(--text-light) !important;
+}
+
+/* Mobile responsive navigation overrides for perfect dark theme alignment */
+@media (max-width: 991px) {
+  .header-area .main-nav .nav {
+    background-color: var(--bg-dark-card) !important;
+    border-top: 1px solid #333333 !important;
+    padding-bottom: 10px !important;
+  }
+  .header-area .main-nav .nav li {
+    background: var(--bg-dark-card) !important;
+    border-bottom: 1px solid #333333 !important;
+  }
+  .header-area .main-nav .nav li:first-child {
+    border-top: 1px solid #333333 !important;
+  }
+  .header-area .main-nav .nav li a {
+    background: var(--bg-dark-card) !important;
+    color: var(--text-light) !important;
+    padding-left: 20px !important;
+    border: none !important;
+  }
+  .header-area .main-nav .nav li a:hover,
+  .header-area .main-nav .nav li a.active {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: var(--accent-blue) !important;
+  }
+  .header-area .main-nav .nav li.has-sub ul.sub-menu {
+    background-color: #ffffff !important;
+  }
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    padding-left: 35px !important;
+    border-bottom: 1px solid #eeeeee !important;
+  }
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
+    background-color: #f7f7f7 !important;
+    color: var(--accent-blue) !important;
+  }
+  .header-area .main-nav .nav li.has-sub:after {
+    color: var(--text-light) !important;
+    right: 20px !important;
+    top: 18px !important;
+  }
+  .header-area .main-nav .nav li.has-sub.is-open-sub:after {
+    color: var(--accent-blue) !important;
+  }
+}
+
+/* Premium Component Hover Animations */
+.services .item,
+.our-courses .item,
+.meeting-item {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.services .item:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
+  border-color: var(--accent-blue) !important;
+}
+
+.our-courses .item:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.meeting-item:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Slider Controls Hover Animations */
+.services .owl-nav .owl-prev,
+.services .owl-nav .owl-next,
+.our-courses .owl-nav .owl-prev,
+.our-courses .owl-nav .owl-next {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.services .owl-nav .owl-prev:hover,
+.services .owl-nav .owl-next:hover,
+.our-courses .owl-nav .owl-prev:hover,
+.our-courses .owl-nav .owl-next:hover {
+  background-color: var(--accent-blue) !important;
+  color: #ffffff !important;
+  transform: scale(1.18) !important;
+  box-shadow: 0 0 15px rgba(58, 123, 213, 0.6) !important;
+}
+
+/* Slider Pagination Bullets Hover Animations */
+.services .owl-dots .owl-dot,
+.our-courses .owl-dots .owl-dot {
+  transition: all 0.3s ease !important;
+}
+
+.services .owl-dots .owl-dot:hover span,
+.our-courses .owl-dots .owl-dot:hover span {
+  background-color: var(--accent-blue) !important;
+  transform: scale(1.3) !important;
+}
