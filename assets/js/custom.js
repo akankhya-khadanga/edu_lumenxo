@@ -346,5 +346,116 @@
         }
     })
 
+    // Dynamic title parameter passing for meeting-details page
+    $(document).ready(function() {
+        var sessionDetailsMap = {
+            "SIH Project Strategy": {
+                description: "The SIH Project Strategy session focuses on mapping out scalable tech solutions for agricultural challenges, specifically tailored for the Smart India Hackathon. Dev Sprints cohorts at GIET University will guide you through system architecture design, data flow diagrams, and select tech stacks.<br><br>Participants are welcome to explore this strategy layout, draft project workflows, and integrate prototype mockups. Ideal for teams aiming to build robust software/hardware solutions for local farming and rural development challenges.",
+                date: "Aug 15",
+                price: "Free"
+            },
+            "Computer Vision Bootcamp": {
+                description: "The Computer Vision Bootcamp is an intensive hands-on lab centered around real-time project building using YOLO (You Only Look Once) models. Students will learn image labeling, model training, and edge device deployment for automated agricultural monitoring and pest detection.<br><br>Get ready to test custom dataset training and compile video feeds. Bring your laptops configured with Python and OpenCV. For environment setup and dataset access, reach out to GIET Dev Sprints mentors.",
+                date: "Aug 24",
+                price: "Free"
+            },
+            "Cloud & Authentication": {
+                description: "The Cloud & Authentication workshop walks you through configuring Firebase services for developer platforms. We cover real-time databases, Firestore collections, secure user registration, and OAuth integrations.<br><br>Learn to design solid security rules and handle backend session validation. Perfect for developers looking to add persistent databases and user management to their web or mobile application prototypes.",
+                date: "Sep 05",
+                price: "Free"
+            },
+            "HealthTech UI/UX Design": {
+                description: "The HealthTech UI/UX Design session covers creating modern, high-contrast dark-themed layouts for healthcare apps. Using platforms like NutriPlan as reference points, we discuss user empathy, accessibility guidelines, and interactive design tokens.<br><br>Collaborate on wireframes and prototype interactive transitions in Figma. Ideal for UI/UX designers and front-end developers aiming to deliver premium, user-friendly digital health dashboards.",
+                date: "Sep 12",
+                price: "Free"
+            },
+            "Advanced Computer Vision Lab": {
+                description: "The Advanced Computer Vision Lab takes CV concepts to the next level. We focus on multi-class object detection, semantic image segmentation, and optimized inference pipeline deployment on resource-constrained embedded systems.<br><br>Explore how convolutional neural networks can be fine-tuned for high-accuracy crop classification and weed detection. A strong background in Python and basic machine learning is recommended.",
+                date: "Nov 22",
+                price: "Rs.134.00"
+            },
+            "Cloud Architecture & Scaling": {
+                description: "The Cloud Architecture & Scaling masterclass focuses on high-availability system designs. Learn containerization with Docker, orchestration with Kubernetes, and horizontal scaling strategies on AWS and Google Cloud Platform.<br><br>Understand how to configure microservices architectures and optimize cloud billing cycles. Recommended for senior developer cohorts aiming to deploy production-grade software platforms.",
+                date: "Nov 24",
+                price: "Rs.145.00"
+            },
+            "SIH Hackathon Mentorship": {
+                description: "The Smart India Hackathon (SIH) Mentorship session offers GIET University cohorts a direct channel to receive feedback from hackathon winners and tech leaders. We review project repositories, pitch presentations, and demo videos.<br><br>Learn how to present your software prototypes, highlight key engineering achievements, and address edge cases. Bring your complete draft projects for evaluation and live debugging.",
+                date: "Nov 27",
+                price: "Rs.152.00"
+            },
+            "YOLO Object Detection Lab": {
+                description: "The YOLO Object Detection Lab is a technical deep dive into custom anchor boxes, loss function tuning, and model quantization. Learn how to optimize YOLO models to run efficiently on mobile devices and edge GPUs.<br><br>Build real-time detection applications using live webcams or video feeds. A pre-configured Python environment with PyTorch or TensorFlow is required for the lab exercises.",
+                date: "Nov 28",
+                price: "Rs.164.00"
+            },
+            "Secure API Integration": {
+                description: "The Secure API Integration workshop teaches developers how to build robust, secure communication layers. We cover JSON Web Token (JWT) authorization, API gateways, rate limiting, and defensive programming practices.<br><br>Learn how to prevent common security flaws, write automated API integration tests, and configure secure HTTPS headers. Ideal for backend and full-stack developer cohorts.",
+                date: "Nov 30",
+                price: "Rs.174.00"
+            }
+        };
+
+        // Update meeting-details.html links with query parameters on index and meetings page
+        $('.meeting-item').each(function() {
+            var title = $(this).find('h4').text().trim();
+            if (title) {
+                $(this).find('a[href^="meeting-details.html"]').each(function() {
+                    $(this).attr('href', 'meeting-details.html?title=' + encodeURIComponent(title));
+                });
+            }
+        });
+
+        // Parse title parameter and update page headings dynamically on meeting-details.html
+        if (window.location.pathname.indexOf('meeting-details.html') > -1 || $('body').hasClass('meeting-details')) {
+            var urlParams = new URLSearchParams(window.location.search);
+            var meetingTitle = urlParams.get('title');
+            if (meetingTitle) {
+                // Update the banner heading
+                var bannerHeading = $('.heading-page h2');
+                if (bannerHeading.length) {
+                    bannerHeading.text(meetingTitle);
+                } else {
+                    $('h2').first().text(meetingTitle);
+                }
+
+                // Update the card heading
+                var cardHeading = $('.meeting-single-item h4');
+                if (cardHeading.length) {
+                    cardHeading.text(meetingTitle);
+                } else {
+                    $('h4').first().text(meetingTitle);
+                }
+
+                // Also update the browser document/tab title
+                document.title = meetingTitle + " - Dev Sprints Community";
+
+                // Update description, date, price if mapped
+                var details = sessionDetailsMap[meetingTitle];
+                if (details) {
+                    // Update description
+                    var descElem = $('.meeting-single-item p.description');
+                    if (descElem.length) {
+                        descElem.html(details.description);
+                    }
+
+                    // Update price
+                    var priceElem = $('.meeting-single-item .price span');
+                    if (priceElem.length) {
+                        priceElem.text(details.price);
+                    }
+
+                    // Update date
+                    var dateElem = $('.meeting-single-item .date h6');
+                    if (dateElem.length && details.date) {
+                        var dateParts = details.date.split(' ');
+                        if (dateParts.length === 2) {
+                            dateElem.html(dateParts[0] + ' <span>' + dateParts[1] + '</span>');
+                        }
+                    }
+                }
+            }
+        }
+    });
 
 })(window.jQuery);
